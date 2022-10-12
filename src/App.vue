@@ -1,35 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link :to="{ name: 'about' }">About</router-link> |
-    <router-link :to="{ name: 'jobs' }">Jobs</router-link>
-  </nav>
-  <router-view />
+  <v-app class="overflow-hidden">
+    <v-layout>
+      <navigation-component />
+
+      <v-app-bar
+        absolute
+        dark
+        shrink-on-scroll
+        src="https://picsum.photos/1920/1080?random"
+        scroll-target="#scrolling-techniques-2"
+      >
+        <v-toolbar-title>My app</v-toolbar-title>
+        <v-btn @click="toggleTheme">toggle theme</v-btn>
+      </v-app-bar>
+      <v-main>
+        <v-card class="ma-5 pa-5">
+          <router-view />
+        </v-card>
+      </v-main>
+    </v-layout>
+  </v-app>
 </template>
 
-<script lang="ts">
-  import './assets/style.scss'
+<script setup lang="ts">
+  import { useTheme } from 'vuetify'
+  import NavigationComponent from './components/NavigationComponent.vue'
+
+  const theme = useTheme()
+  const toggleTheme = () =>
+    (theme.global.name.value = theme.global.current.value.dark
+      ? 'light'
+      : 'dark')
 </script>
-
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-
-  nav {
-    padding: 30px;
-
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
-  }
-</style>

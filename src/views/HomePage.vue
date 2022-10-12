@@ -1,16 +1,11 @@
 <template>
   <div>
-    <h1>Homepage</h1>
-    <LoremDummy />
+    <ImagesComponent />
   </div>
 </template>
 
-<script lang="ts">
-  import LoremDummy from '../components/LoremDummy.vue'
-  import { defineComponent } from 'vue'
-  export default defineComponent({
-    components: { LoremDummy },
-  })
+<script setup lang="ts">
+  import ImagesComponent from '../components/ImagesComponent.vue'
 </script>
 
 <style lang=""></style>
