@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer expand-on-hover rail absolute rounded floating>
+  <v-navigation-drawer v-model="store.showMenu">
     <v-list density="compact" nav>
       <v-list-item
         prepend-avatar="https://randomuser.me/api/portraits/men/11.jpg"
@@ -46,7 +46,6 @@
 </template>
 
 <script setup lang="ts">
-  import { useGetColorGallery } from '../stores/useGetColorGallery'
-
-  const store = useGetColorGallery()
+  import { useUserSetting } from '../stores/useUserSetting'
+  const store = useUserSetting()
 </script>

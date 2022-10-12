@@ -61,9 +61,9 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { useGetColorGallery } from '../stores/useGetColorGallery'
+  import { useUserSetting } from '../stores/useUserSetting'
 
-  const store = useGetColorGallery()
+  const store = useUserSetting()
 
   const endURL = computed<string>(() => {
     return store.willGetColor ? '' : '&grayscale'
