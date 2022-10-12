@@ -18,15 +18,20 @@
             style="cursor: pointer"
           >
             <v-img
-              :src="`https://picsum.photos/500/300?image=${n * 5 + 10}${
-                willGetColor ? '' : '&grayscale'
-              }`"
-              :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}${
-                willGetColor ? '' : '&grayscale'
-              }`"
+              :src="`https://picsum.photos/500/300?image=${
+                n * 5 + 10
+              }${endURL}`"
+              :lazy-src="`https://picsum.photos/10/6?image=${
+                n * 5 + 10
+              }${endURL}`"
               aspect-ratio="1"
               cover
               class="bg-grey-lighten-2"
+              @click="
+                copyURL(
+                  `https://picsum.photos/500/300?image=${n * 5 + 10}${endURL}`
+                )
+              "
             >
               <template #placeholder>
                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -41,10 +46,32 @@
         </v-hover>
       </v-col>
     </v-row>
+    <!-- <v-alert
+      ref="test"
+      type="success"
+      position="fixed"
+      location="bottom center"
+      icon="mdi-home"
+      transition="scale-transition"
+      :closable="true"
+      >I'm a success alert.</v-alert
+    > -->
   </div>
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{ willGetColor: boolean }>()
-  console.log('willGetColor :>> ', props.willGetColor)
+  import { computed, ref } from 'vue'
+  import { useGetColorGallery } from '../stores/useGetColorGallery'
+
+  const store = useGetColorGallery()
+
+  const endURL = computed<string>(() => {
+    return store.willGetColor ? '' : '&grayscale'
+  })
+
+  const copyURL = (URL: string) => {
+    console.log('URL :>> ', URL)
+    navigator.clipboard.writeText(URL)
+    alert('Copied!')
+  }
 </script>

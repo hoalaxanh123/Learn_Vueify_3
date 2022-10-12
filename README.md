@@ -1,4 +1,5 @@
-# Vue 3 + TypeScript + Vite + Eslint + Prettier
+# Vue 3 + TypeScript + Vite + Eslint + Prettier + Vuetify + Pinia
+## Ref: https://www.youtube.com/watch?v=PzXaFXgsp60
 
 ## My Edit
 
@@ -7,6 +8,8 @@
 - Add `lint` command to using eslint check and fix code (E.g. `yarn lint`)
 - Add `format` command to using Prettier to format code (E.g. `yarn format`)
 - Add git
+
+<hr/>
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 

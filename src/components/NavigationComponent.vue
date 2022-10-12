@@ -26,14 +26,14 @@
         prepend-icon="mdi-call-split"
         title="Color Gallery"
         value="Color Gallery"
-        @click="changeStyle(true)"
+        @click="store.changeStyle(true)"
       >
       </v-list-item>
       <v-list-item
         prepend-icon="mdi-call-split"
         title="Grey Gallery"
         value="Grey Gallery"
-        @click="changeStyle(false)"
+        @click="store.changeStyle(false)"
       >
       </v-list-item>
     </v-list>
@@ -45,4 +45,8 @@
   </v-navigation-drawer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { useGetColorGallery } from '../stores/useGetColorGallery'
+
+  const store = useGetColorGallery()
+</script>
