@@ -1,4 +1,5 @@
 # Vue 3 + TypeScript + Vite + Eslint + Prettier + Vuetify + Pinia
+
 ## Ref: https://www.youtube.com/watch?v=PzXaFXgsp60
 
 ## My Edit
